@@ -1,9 +1,4 @@
-import {
-  ChevronDownIcon,
-  Icon,
-  SearchIcon,
-  WarningIcon,
-} from "@chakra-ui/icons";
+import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 import {
   Button,
   Container,
@@ -15,8 +10,8 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Spacer,
   Text,
+  useColorMode,
 } from "@chakra-ui/react";
 import useCountries from "../hooks/useCountries";
 import useCountryQueryStore from "../stores/countrystore";
@@ -27,6 +22,8 @@ import NavBar from "../components/NavBar";
 
 const HomePage = () => {
   const { data, isLoading } = useCountries();
+
+  const { colorMode } = useColorMode();
 
   const regions = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
 
@@ -61,8 +58,19 @@ const HomePage = () => {
     <>
       <Container maxW="100%" padding="0">
         <NavBar />
-        <Container maxW="90%" marginTop="30px">
-          <Flex>
+        <Container
+          maxW="90%"
+          bg={colorMode === "light" ? "#FAFAFA" : "#2d3748"}
+        >
+          <Flex
+            marginTop="20px"
+            flexDirection={{
+              base: "column",
+              sm: "column",
+              md: "row",
+              lg: "row",
+            }}
+          >
             <form
               style={{ width: "100%" }}
               onSubmit={(event) => {
@@ -79,7 +87,8 @@ const HomePage = () => {
                 <Input
                   type="text"
                   placeholder="Search for a country..."
-                  maxW="30%"
+                  maxW={{ base: "100%", sm: "100%", md: "30%" }}
+                  marginBottom={{ base: "20px", sm: "20px", md: "0" }}
                   boxShadow="md"
                   fontSize={"14px"}
                   ref={ref}
@@ -88,14 +97,15 @@ const HomePage = () => {
                 />
               </InputGroup>
             </form>
-            <Spacer />
+
             <Menu>
               <MenuButton
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
                 boxShadow="md"
-                borderRadius="5px"
+                borderRadius="4px"
                 width="200px"
+                bg={colorMode === "dark" ? "#2d3748" : "white"}
               >
                 <Text fontWeight={400} fontSize={"14px"}>
                   Filter By Region

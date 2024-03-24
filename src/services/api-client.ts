@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 });
 
 // Used to send diff http requests to a particular endpoint
-class APIClient<T> {
+class APIClient {
   endpoint: string;
 
   constructor(endpoint: string) {

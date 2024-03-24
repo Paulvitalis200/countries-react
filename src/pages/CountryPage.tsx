@@ -25,11 +25,25 @@ const CountryPage = () => {
       <Container maxW="90%">
         <Link to="/">
           <Flex
-            width="5%"
+            width={{
+              base: "25%",
+              sm: "25%",
+              md: "5%",
+            }}
             alignItems="center"
             justifyContent={"space-between"}
-            marginTop="100px"
-            marginBottom="80px"
+            marginTop={{
+              base: "40px",
+              sm: "40px",
+              md: "60px",
+              lg: "100px",
+            }}
+            marginBottom={{
+              base: "64px",
+              sm: "64px",
+              md: "80px",
+              lg: "80px",
+            }}
           >
             <ArrowBackIcon />
             <Text>Back</Text>
@@ -37,19 +51,58 @@ const CountryPage = () => {
         </Link>
 
         {data && (
-          <Flex justifyContent="space-between">
+          <Flex
+            justifyContent="space-between"
+            flexDirection={{
+              base: "column",
+              sm: "column",
+              md: "row",
+              lg: "row",
+            }}
+          >
             <Image
               src={data[0].flags.png}
               width="560px"
-              height="401px"
+              height={{
+                base: "auto",
+                sm: "auto",
+                md: "401px",
+                lg: "401px",
+              }}
+              marginRight={{
+                base: "0",
+                sm: "0",
+                md: "50px",
+                lg: "80px",
+              }}
               borderRadius="5px"
             />
             <Box width="80%">
-              <VStack>
-                <Heading>{data[0].name.common}</Heading>
+              <VStack alignItems={"flex-start"}>
+                <Heading
+                  marginTop={{
+                    base: "30px",
+                    sm: "30px",
+                    md: "0",
+                    lg: "0",
+                  }}
+                >
+                  {data[0].name.common}
+                </Heading>
                 <Box>
-                  <Flex>
-                    <VStack marginRight="50px">
+                  <Flex
+                    flexDirection={{
+                      base: "column",
+                      sm: "column",
+                      md: "row",
+                      lg: "row",
+                    }}
+                  >
+                    <VStack
+                      marginRight="50px"
+                      align="center"
+                      alignItems={"flex-start"}
+                    >
                       <HStack>
                         <Text textAlign="left" fontWeight="500">
                           Native Name:
@@ -75,7 +128,7 @@ const CountryPage = () => {
                         <Text>{data[0].capital[0]}</Text>
                       </HStack>
                     </VStack>
-                    <VStack>
+                    <VStack alignItems={"flex-start"}>
                       <HStack>
                         <Text fontWeight="500">Top Level Domain:</Text>
                         <Text>{data[0].tld[0]}</Text>
@@ -91,9 +144,22 @@ const CountryPage = () => {
                     </VStack>
                   </Flex>
                 </Box>
-                <Flex alignItems="center" marginTop="50px" width="70%">
+                <Flex
+                  alignItems="flex-start"
+                  marginTop="50px"
+                  width={{
+                    base: "100%",
+                    sm: "100%",
+                    md: "70%",
+                  }}
+                  flexDirection={{
+                    base: "column",
+                    sm: "column",
+                    md: "row",
+                  }}
+                >
                   <Text marginRight="10px" fontWeight={500}>
-                    Borders:{" "}
+                    Border countries:{" "}
                   </Text>
                   <Flex
                     flexDirection="row"

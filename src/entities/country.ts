@@ -18,10 +18,5 @@ interface CountryName {
 }
 
 interface NativeName {
-  name: any;
-}
-
-interface NativeNameSub {
-  official: string;
-  common: string;
+  name: { [key: string]: string };
 }

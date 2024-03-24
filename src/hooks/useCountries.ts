@@ -1,22 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
-import { CountryInterface } from "../entities/country";
 import useCountryQueryStore from "../stores/countrystore";
 
 const useCountries = () => {
   const countryQuery = useCountryQueryStore((s) => s.countryQuery);
   const fetchCountries = () => {
-    let apiClient = new APIClient<CountryInterface>("/all");
+    let apiClient = new APIClient("/all");
     if (countryQuery.region) {
-      apiClient = new APIClient<CountryInterface>(
-        `/region/${countryQuery.region}`
-      );
+      apiClient = new APIClient(`/region/${countryQuery.region}`);
     } else if (countryQuery.country) {
-      apiClient = new APIClient<CountryInterface>(
-        `/name/${countryQuery.country}?fullText=true`
-      );
+      apiClient = new APIClient(`/name/${countryQuery.country}?fullText=true`);
     } else {
-      apiClient = new APIClient<CountryInterface>("/all");
+      apiClient = new APIClient("/all");
     }
     return apiClient.getAll({});
   };
