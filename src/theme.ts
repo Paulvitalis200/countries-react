@@ -7,6 +7,10 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({
   config,
+  fonts: {
+    heading: `'Nunito Sans', sans-serif`,
+    body: `'Nunito Sans', sans-serif`,
+  },
 });
 
 export default theme;
