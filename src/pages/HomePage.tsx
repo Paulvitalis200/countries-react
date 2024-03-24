@@ -23,17 +23,15 @@ import useCountryQueryStore from "../stores/countrystore";
 import SkeletonGrid from "../components/SkeletonGrid";
 import CountryGrid from "../components/CountryGrid";
 import { useRef, useState } from "react";
+import NavBar from "../components/NavBar";
 
 const HomePage = () => {
-  console.log("START");
   const { data, isLoading } = useCountries();
 
   const regions = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
 
   const setRegion = useCountryQueryStore((s) => s.setRegion);
   const setCountry = useCountryQueryStore((s) => s.setCountry);
-
-  console.log(data);
 
   const handleSetRegion = (region: string) => {
     if (region === "All") {
@@ -61,8 +59,9 @@ const HomePage = () => {
 
   return (
     <>
-      <Container maxW="100%" bg="#FAFAFA" height="100vh">
-        <Container maxW="90%">
+      <Container maxW="100%" padding="0">
+        <NavBar />
+        <Container maxW="90%" marginTop="30px">
           <Flex>
             <form
               style={{ width: "100%" }}
@@ -81,7 +80,6 @@ const HomePage = () => {
                   type="text"
                   placeholder="Search for a country..."
                   maxW="30%"
-                  bg="white"
                   boxShadow="md"
                   fontSize={"14px"}
                   ref={ref}
@@ -95,7 +93,6 @@ const HomePage = () => {
               <MenuButton
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
-                bg="white"
                 boxShadow="md"
                 borderRadius="5px"
                 width="200px"

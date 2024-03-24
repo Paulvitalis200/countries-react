@@ -10,7 +10,7 @@ const CountryGrid = ({ countries }: CountriesProps) => {
     <SimpleGrid
       spacing="75px"
       maxW="100%"
-      columns={{ base: 1, sm: 1, md: 3, lg: 4 }}
+      columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
       paddingBottom={"20px"}
       paddingTop="50px"
     >

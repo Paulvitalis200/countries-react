@@ -22,6 +22,10 @@ class APIClient<T> {
   getAll = (config: AxiosRequestConfig) => {
     return axiosInstance.get(this.endpoint, config).then((res) => res.data);
   };
+
+  getCountry = (config: AxiosRequestConfig) => {
+    return axiosInstance.get(this.endpoint, config).then((res) => res.data);
+  };
 }
 
 export default APIClient;
