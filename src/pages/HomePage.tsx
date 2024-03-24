@@ -58,10 +58,7 @@ const HomePage = () => {
     <>
       <Container maxW="100%" padding="0">
         <NavBar />
-        <Container
-          maxW="90%"
-          bg={colorMode === "light" ? "#FAFAFA" : "#2d3748"}
-        >
+        <Container maxW="90%">
           <Flex
             marginTop="20px"
             flexDirection={{
