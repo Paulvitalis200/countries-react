@@ -20,9 +20,7 @@ class APIClient<T> {
   // We add a generic type T to avoid a promise of any
   // We use arrow functions so that the this instance will refer to the API client instance
   getAll = (config: AxiosRequestConfig) => {
-    return axiosInstance
-      .get<FetchResponse<T>>(this.endpoint, config)
-      .then((res) => res.data);
+    return axiosInstance.get(this.endpoint, config).then((res) => res.data);
   };
 }
 

@@ -3,10 +3,12 @@ export interface CountryInterface {
   capital: string[];
   region: string;
   subregion: string;
-  flag: string;
+  flags: { [key: string]: string };
   tld: string;
   currencies: { [key: string]: string };
   languages: { [key: string]: string };
+  population: number;
+  fifa: string;
 }
 
 interface CountryName {
