@@ -13,8 +13,14 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
+import useCountries from "../hooks/useCountries";
 
 const HomePage = () => {
+  console.log("START");
+  const { data } = useCountries();
+
+  console.log(data);
+
   return (
     <>
       <Container maxW="100%" bg="#FAFAFA" height="100vh">
