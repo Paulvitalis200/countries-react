@@ -22,6 +22,7 @@ const CountryCard = ({ country }: CountryProps) => {
           alt="Country"
           borderTopRadius="5px"
           height="180px"
+          width="100%"
         />
         <Text
           fontWeight={700}
