@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import useCountry from "../hooks/useCountry";
 import {
   Box,
-  Card,
   Container,
   Flex,
   Heading,
