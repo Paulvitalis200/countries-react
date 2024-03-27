@@ -3,12 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import useCountry from "../hooks/useCountry";
 import {
   Box,
+  Card,
   Container,
   Flex,
   Heading,
   HStack,
   Image,
   Skeleton,
+  SkeletonText,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -158,9 +160,11 @@ const CountryPage = () => {
                     md: "row",
                   }}
                 >
-                  <Text marginRight="10px" fontWeight={500}>
-                    Border countries:{" "}
-                  </Text>
+                  {data[0].borders && (
+                    <Text marginRight="10px" fontWeight={500}>
+                      Border countries:{" "}
+                    </Text>
+                  )}
                   <Flex
                     flexDirection="row"
                     justifyContent="space-between"
@@ -191,12 +195,16 @@ const CountryPage = () => {
         )}
 
         {isLoading && (
-          <Skeleton
-            maxW="100%"
-            width="100%"
-            height="500px"
-            borderRadius="5px"
-          />
+          <Flex justifyContent="space-between" width="80%">
+            <Skeleton width="55%" height="400px" borderRadius="5px" />
+            <SkeletonText
+              width="35%"
+              mt="2"
+              noOfLines={10}
+              spacing="5"
+              skeletonHeight="2"
+            />
+          </Flex>
         )}
         {!data && !isLoading && (
           <Text textAlign="center">Sorry the country does not exist.</Text>

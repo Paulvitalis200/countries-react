@@ -1,8 +1,8 @@
 import { Container, Flex, HStack, Text, useColorMode } from "@chakra-ui/react";
-import { BsMoon } from "react-icons/bs";
+import { BsMoon, BsSun } from "react-icons/bs";
 
 const NavBar = () => {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <Container
@@ -17,8 +17,17 @@ const NavBar = () => {
         <Flex justifyContent="space-between">
           <Text fontWeight="800">Where in the World?</Text>
           <HStack onClick={toggleColorMode} cursor={"pointer"}>
-            <BsMoon />
-            <Text>Dark Mode</Text>
+            {colorMode === "light" ? (
+              <>
+                <BsMoon />
+                <Text>Dark Mode</Text>
+              </>
+            ) : (
+              <>
+                <BsSun />
+                <Text>Light Mode</Text>
+              </>
+            )}
           </HStack>
         </Flex>
       </Container>
