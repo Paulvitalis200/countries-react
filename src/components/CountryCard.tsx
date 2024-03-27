@@ -50,9 +50,7 @@ const CountryCard = ({ country }: CountryProps) => {
           <Text fontWeight={600} marginLeft="25px">
             Capital:
           </Text>
-          <Text fontWeight={400} fontSize="13px">
-            {country.capital}
-          </Text>
+          <Text fontWeight={400}>{country.capital}</Text>
         </Stack>
       </Link>
     </Card>

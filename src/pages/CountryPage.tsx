@@ -136,11 +136,19 @@ const CountryPage = () => {
                       </HStack>
                       <HStack>
                         <Text fontWeight="500">Currencies:</Text>
-                        <Text>Euro</Text>
+                        <Text>
+                          {
+                            data[0].currencies[
+                              Object.keys(data[0].currencies)[0]
+                            ].name
+                          }
+                        </Text>
                       </HStack>
                       <HStack>
                         <Text fontWeight="500">Languages:</Text>
-                        <Text>Euro</Text>
+                        <Text>
+                          {Object.values(data[0].languages).join(", ")}
+                        </Text>
                       </HStack>
                     </VStack>
                   </Flex>
