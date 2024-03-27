@@ -5,7 +5,7 @@ import useCountryQueryStore from "../stores/countrystore";
 const useCountries = () => {
   const countryQuery = useCountryQueryStore((s) => s.countryQuery);
   const fetchCountries = () => {
-    let apiClient = new APIClient("/all");
+    let apiClient;
     if (countryQuery.region) {
       apiClient = new APIClient(`/region/${countryQuery.region}`);
     } else if (countryQuery.country) {
