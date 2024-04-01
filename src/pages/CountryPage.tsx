@@ -107,7 +107,14 @@ const CountryPage = () => {
                         <Text textAlign="left" fontWeight="500">
                           Native Name:
                         </Text>
-                        <Text>{data[0].name.common}</Text>
+                        <Text>
+                          {" "}
+                          {
+                            data[0].name.nativeName[
+                              Object.keys(data[0].name.nativeName)[0]
+                            ].common
+                          }
+                        </Text>
                       </HStack>
                       <HStack>
                         <Text textAlign="left" fontWeight="500">
