@@ -18,8 +18,7 @@ import NavBar from "../components/NavBar";
 
 const CountryPage = () => {
   const { name } = useParams();
-  const { data, isLoading } = useCountry(name);
-
+  const { data, isLoading } = useCountry(name!);
   return (
     <>
       <NavBar />
@@ -51,7 +50,7 @@ const CountryPage = () => {
           </Flex>
         </Link>
 
-        {data && (
+        {data && !isLoading && (
           <Flex
             justifyContent="space-between"
             flexDirection={{

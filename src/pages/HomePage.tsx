@@ -26,14 +26,17 @@ const HomePage = () => {
   const { colorMode } = useColorMode();
 
   const regions = ["All", "Africa", "America", "Asia", "Europe", "Oceania"];
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   const setRegion = useCountryQueryStore((s) => s.setRegion);
   const setCountry = useCountryQueryStore((s) => s.setCountry);
 
   const handleSetRegion = (region: string) => {
     if (region === "All") {
+      setSelectedRegion("");
       setRegion("");
     } else {
+      setSelectedRegion(region);
       setRegion(region);
     }
   };
@@ -101,12 +104,18 @@ const HomePage = () => {
                 rightIcon={<ChevronDownIcon />}
                 boxShadow="md"
                 borderRadius="4px"
-                width="200px"
+                width="250px"
                 bg={colorMode === "dark" ? "#2d3748" : "white"}
               >
-                <Text fontWeight={400} fontSize={"14px"}>
-                  Filter By Region
-                </Text>
+                {selectedRegion ? (
+                  <Text fontWeight={400} fontSize={"14px"}>
+                    Filter By Region: {selectedRegion}
+                  </Text>
+                ) : (
+                  <Text fontWeight={400} fontSize={"14px"}>
+                    Filter By Region
+                  </Text>
+                )}
               </MenuButton>
               <MenuList>
                 {regions.map((region) => (

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
 
-const useCountry = (country: string | undefined) => {
+const useCountry = (country: string) => {
   const apiClient = new APIClient(`/name/${country}?fullText=true`);
 
   const fetchCountry = () => {
@@ -11,7 +11,7 @@ const useCountry = (country: string | undefined) => {
   return useQuery({
     queryKey: ["country"],
     queryFn: fetchCountry,
-    staleTime: 1000, //24h
+    staleTime: 0,
   });
 };
 
