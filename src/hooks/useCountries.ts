@@ -11,7 +11,9 @@ const useCountries = () => {
     } else if (countryQuery.country) {
       apiClient = new APIClient(`/name/${countryQuery.country}?fullText=true`);
     } else {
-      apiClient = new APIClient("/all");
+      apiClient = new APIClient(
+        "/all?fields=name,capital,currencies,region,subregion,flags,tld,currencies,languages,population"
+      );
     }
     return apiClient.getAll({});
   };

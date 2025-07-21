@@ -8,7 +8,7 @@ export interface CountryInterface {
   currencies: { [key: string]: string };
   languages: { [key: string]: string };
   population: number;
-  fifa: string;
+  fifa?: string;
 }
 
 interface CountryName {
